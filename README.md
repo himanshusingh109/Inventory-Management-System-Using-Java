@@ -1,66 +1,74 @@
-<<<<<<< HEAD
 # Inventory Management System
 
-This is an Inventory Management System built in the form of a GUI desktop application developed in ***Java*** using ***MySQL*** as its database.
-The GUI was designed using **Swing** and the database connectivity was managed using **JDBC API**.
+## 1. Project Overview
+This is an Inventory Management System built as a GUI desktop application developed in **Java** using **MySQL** for database management. The interface was designed using **Swing** and database connectivity is handled via the **JDBC API**.
 
+This application is designed for small to mid-sized retail stores to digitize their processes. It allows business owners to easily maintain and manage an inventory of products, customers, suppliers, users, and sales transactions.
 
-This application can be used by any small to mid-sized stores to easily maintain and manage an inventory of all their-
-- Products 
-- Customers 
-- Suppliers
-- Users 
-- Transactions
+## 2. Features
+**User Management:**
+* **Role-Based Access:** Supports two user types: **Administrator** and **Employee**.
+* **Admin Privileges:** Admins can manage all personnel and view user logs (login/logout times).
+* **Security:** Secure login verification against the database.
 
+**Inventory & Stock Control:**
+* **CRUD Operations:** Users can Add, Edit, and Delete products, suppliers, and customers.
+* **Real-time Stock Updates:** Any transaction made (Sale or Purchase) automatically updates the stock availability in the inventory.
+* **Current Stock View:** A dedicated section to check the availability of every item.
 
-## Features of the Application
+**Transaction Management:**
+* **Sales Module:** Users only need to enter the `Product Code`; the system automatically retrieves details (price, name) and calculates the bill.
+* **Purchase Module:** Logs new stock purchases and updates inventory counts immediately.
+* **Search Functionality:** Each section includes a search bar to filter data quickly.
 
-- Users can manage inventory and stock of all the products available in their store.
-- Users can manage all sales and purchase transactions made by the store.
-- Supports two user types:
-  1. Administrator
-  2. Employee
-  
-  [Admins have the ability to manage all other personnel.]
-- Any transaction made automatically handles the stock availability in the inventory.
-- Each section includes a search feature to make it easier for users to view the data they want to see.
-- Users only need to enter the product code while making a sale and all the relevant details will be retrieved from the database automatically.
-- Maintains a time log of all the users using the application.
+## 3. Technologies & Tools Used
+* **Language:** Java (JDK 16)
+* **GUI Framework:** Java Swing
+* **Database:** MySQL Server
+* **Database Connectivity:** JDBC API
+* **IDE Tools:** JetBrains IntelliJ IDE / Apache NetBeans (for GUI design)
+* **Database Tool:** MySQL Workbench
 
-## How to download and run the software
+## 4. Steps to Install & Run
+**Prerequisites:** Ensure you have **JDK 16 (or higher)** and **MySQL Server** installed.
 
-#### Minimum Requirements: JDK or JRE version 16.
-
-1. Download and unzip the ZIP folder: [InventoryManagement.zip](InventoryManagement.zip)
-2. Download the [SQL dump file](SQL/InventoryDB.sql)
-3. Import the SQL dump file using MySQL Workbench to locally create the sample schema and tables associated with this software.
-4. After the inventory schema has been locally created, you can go ahead and run the JAR file (InventoryManagement.jar) included in the zip folder.
-5. Default credentials for the connection to MySQL database is:
-    - Username: root
-    - Password: root
-  
-    Incase your database uses a different username and password to connect, follow these steps:
-    1. Go to the `lib` folder in the zip file that you downloaded.
-    2. Open the XML source file `DBCredentials.xml`.
-    3. Simply change the values of the two `entry` tags with values `username` and `password` from "root" to whatever username and password you are using. (Ln 12 and 13)
+1.  **Download the Source:**
+    * Download and unzip the project folder.
+2.  **Database Setup:**
+    * Open **MySQL Workbench**.
+    * Import the SQL dump file included in the project folder to create the local schema and tables.
+3.  **Configure Credentials:**
+    * *Default credentials are `root` / `root`.*
+    * If your MySQL password differs, go to the `lib` folder and open `DBCredentials.xml`.
+    * Edit lines 12 and 13 to match your local database settings:
         ```xml
-          <properties>
-          <comment>Credentials for the database.</comment>
-            <entry key="username">root</entry>
-            <entry key="password">root</entry>
-          </properties>
+        <entry key="username">YOUR_USERNAME</entry>
+        <entry key="password">YOUR_PASSWORD</entry>
         ```
-6. Once these credentials match, the JAR file should execute without any issues provided that you have the minimum JRE.
-7. You can log into the application using Username: `root` and Password: `root`.
+4.  **Run the Application:**
+    * Execute the `InventoryManagement.jar` file located in the folder.
 
-### Note:
+## 5. Instructions for Testing
+To verify the system functionalities, follow this workflow:
 
-All the project dependencies are available in the [`lib`](lib/) directory.
+1.  **Login Test:**
+    * Launch the app.
+    * Enter Username: `root`, Password: `root`.
+    * *Expected Result:* You should be directed to the Dashboard.
+2.  **Add Product Test:**
+    * Navigate to the **Products** section.
+    * Click "Add" and enter dummy product details (e.g., "Test Item", Price: 100).
+    * *Expected Result:* The item appears in the table.
+3.  **Sales Transaction Test:**
+    * Go to the **Sales** section.
+    * Enter the Customer ID and the Product Code of the item you just added.
+    * Complete the transaction.
+    * *Expected Result:* The **Current Stock** count for that item should decrease by 1.
+4.  **Admin Log Test:**
+    * Go to the **User Logs** section (Admin only).
+    * *Expected Result:* You should see a record of your current login session.
 
-***
-
-
-## Application Preview
+## 6. Project Screenshots
 
 ### Login Page
 
@@ -149,10 +157,6 @@ The software code has been divided into four different packages:
 
 Click [here](src/com/inventory/) to skip directly to the source code.
 
-## Work-in-Progress
-
-This project is a work in progress and more features are yet to be added with new technologies. 
-=======
 # Inventory-Management-System
 Developed using Java and MySQL, this system replaces inefficient manual tracking methods with a centralized platform for managing inventory, processing sales transactions, and maintaining supplier records. It features a user-friendly GUI built with Java Swing, providing secure, role-based access and real-time visibility into stock levels.
->>>>>>> 56034cefc99a0dfbb06bfa8e3f7ee32e4a4e12a6
+
